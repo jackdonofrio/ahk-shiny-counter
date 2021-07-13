@@ -1,0 +1,21 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $.ajaxSetup({
+            headers: {  'Access-Control-Allow-Origin': 'http://127.0.0.1:5000/' },
+        });
+        setInterval(
+            function() {
+                $.getJSON(
+                    'http://127.0.0.1:5000/count',
+                    {},
+                    function(count_dict)
+                    {
+                        $("#count_display").text(count_dict.count)
+                    });   
+            },
+        200);
+    </script>
+</head>
+
+<span id=count_display>{{ count }}</span>
